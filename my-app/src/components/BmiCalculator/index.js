@@ -19,7 +19,7 @@ import {
 const getBmi = (height, weight) => {
   const heightInMeters = height / 100
   const bmi = weight / heightInMeters ** 2
-  return bmi.toFixed(2)
+  return bmi.toFixed(2) //will round the number to two decimal places, and the result will be returned as a string.
 }
 
 const BmiCalculator = () => {
