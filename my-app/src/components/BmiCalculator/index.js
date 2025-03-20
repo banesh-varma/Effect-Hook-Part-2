@@ -29,14 +29,23 @@ const BmiCalculator = () => {
     storedHeight !== null ? storedHeight : 170,
   )
   const [weight, setWeight] = useState(
-    storedWeight !== null ? storedWeight : 150,
+    storedWeight !== null ? storedWeight : 60,
   )
 
   useEffect(() => {
     document.title = `Your BMI: ${getBmi(height, weight)}`
+    console.log('Browser Title updated')
+  }, [height, weight])
+
+  useEffect(() => {
     localStorage.setItem('height', JSON.stringify(height))
+    console.log('Height stored in local storage')
+  }, [height])
+
+  useEffect(() => {
     localStorage.setItem('weight', JSON.stringify(weight))
-  })
+    console.log('Weight stored in local storage')
+  }, [weight])
 
   const onIncrementWeight = () => {
     setWeight(prevWeight => prevWeight + 1)
